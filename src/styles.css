@@ -1,0 +1,59 @@
+.aldrich-regular {
+    font-family: "Aldrich", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+body{
+    margin: 0px;
+    padding: 0px;
+}
+#header{
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    background-color: black;
+    border-bottom: 1pt solid rgb(188, 187, 187);
+}
+
+#name{
+    color:rgb(187, 95, 187);
+    font-size: 36px;
+    align-self: center;
+    margin-left: 25px;
+    font-family: "Aldrich", serif;
+}
+
+#addToDo{
+    align-self: center;
+    margin-right: 25px;
+    background-color:rgb(187, 95, 187);
+    color: black;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    font-family: "Aldrich", serif;
+}
+
+#main{
+    display: flex;
+}
+#navigation{
+    border-right: 1pt solid rgb(188, 187, 187);
+    background-color: rgb(32, 32, 32);
+    width: 20vw;
+    height: 100vh;
+
+}
+#content{
+    background-color: rgb(32, 32, 32);
+    width: 80vw;
+    height: 100vh;
+}
+
+.toDosDiv{
+    color: white;
+}

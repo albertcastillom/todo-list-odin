@@ -2,7 +2,9 @@ import "./styles.css";
 import { toDo } from "./addToDo";
 import { addToDoForm } from "./addToDoForm";
 import { renderTodo } from "./renderTodo";
-
+import { addProjectForm } from "./addProjectForm";
+import { addProject } from "./addProject";
+import { renderProject } from "./renderProjects";
 
 
 let ToDoBtn = document.querySelector("#addToDo"); // +todo button
@@ -35,3 +37,24 @@ ToDoBtn.addEventListener("click", ()=>{ //event listenet on +todo
     });
 });
 
+let newProjectBtn = document.querySelector("#addNewProject");
+
+newProjectBtn.addEventListener("click", ()=>{
+
+    addProjectForm();
+
+    const form = document.querySelector("#addProjectForm");
+
+    form.addEventListener("submit", (event)=>{
+        event.preventDefault();
+        const project = document.getElementById("projectForm").value;
+
+        let projects = addProject(project);
+        renderProject(projects);
+        form.remove();
+
+        //add delete btn logic
+    });
+
+
+});

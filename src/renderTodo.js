@@ -19,7 +19,6 @@ let renderTodo = function(todo){
     todoDiv.appendChild(deleteBtn);
 
     content.appendChild(todoDiv);
-    
-};
 
+    };
 export {renderTodo};

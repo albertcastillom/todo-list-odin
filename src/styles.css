@@ -69,7 +69,7 @@ body{
     margin-bottom: 15px;
 }
 
-#content{
+.tab-content{
     background-color: rgb(32, 32, 32);
     width: 80vw;
     height: 100vh;
@@ -156,4 +156,68 @@ select:-webkit-autofill:focus {
     text-decoration: none;
     font-family: "Aldrich", serif;
     padding: 10px 15px 8px 15px;
+}
+
+#addProjectForm input, #addProjectForm select, #addProjectForm textarea{
+    margin: 12px 0;
+    border: 1pt solid rgb(188, 187, 187);
+    background-color: rgb(32, 32, 32);
+    color: rgb(188, 187, 187);
+    border-radius: 5px;
+    font-family: "Aldrich", serif;
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
+
+
+#project-add-btn{
+    background-color:rgb(187, 95, 187);
+    color: black;
+    border: none;
+    border-radius: 3px;
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+    font-family: "Aldrich", serif;
+    padding: 10px 15px 8px 15px;
+}
+
+.newProject{
+    display: flex;
+    background-color:rgb(187, 95, 187);
+    color: black;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    align-items: center;
+    text-decoration: none;
+    font-family: "Aldrich", serif;
+    width: 100%;
+    margin: 0px;
+    padding: 15px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    justify-content: space-between;
+}
+
+.project-delete-btn{
+    background-color: rgb(187, 95, 187);
+    color: black;
+    border:  2pt solid black;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    font-family: "Aldrich", serif;
+    font-size: 15px;
+    padding: 10px 15px 8px 15px;
+}
+
+.active{
+    display: block;
+}
+
+.hide{
+    display:none;
 }

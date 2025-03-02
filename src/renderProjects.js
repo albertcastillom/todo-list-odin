@@ -1,5 +1,10 @@
 let renderProject = function(project){
 
+    if(Array.isArray(project)){
+        project.forEach(item =>{
+            renderProject(item);
+        });
+    } else if (typeof project === "object" && project !== null){
     const nav = document.querySelector("#navigation");
     let newProjectTab = document.createElement("button");
     newProjectTab.classList = "newProject"; 
@@ -16,6 +21,7 @@ let renderProject = function(project){
     newProjectTab.appendChild(deleteBtn);
 
     nav.appendChild(newProjectTab);
-}
+    }
+};
 
 export{renderProject};

@@ -7,6 +7,7 @@ let addProjectForm = function(){
     let projectPara = document.createElement("p");
     let projectLabel = document.createElement("label");
     projectLabel.for = "newProject";
+    projectLabel.id = "project-form-title-input";
     projectLabel.textContent = "Project:";
     let projectInput = document.createElement("input");
     projectInput.type = "text";

@@ -1,13 +1,13 @@
 
-let renderTodo = function(todo){
+let renderTodo = function(todo, tab){
 
     if(Array.isArray(todo)){
         todo.forEach(item =>{
-            renderTodo(item);
+            renderTodo(item, tab);
         });
     } else if (typeof todo === "object" && todo !== null){
         //creating todos
-        const content = document.querySelector("#content");
+        const content = document.querySelector(`#${tab}`);
         let todoDiv = document.createElement("div");
         todoDiv.classList = "toDosDiv" 
     

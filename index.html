@@ -1,26 +1,69 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Aldrich&display=swap');
-        </style>
-    <title>ToDo List</title>
-<script defer src="main.js"></script></head>
-<body>
-    <div id="header">
-        <div id="name">TODO'S</div>
-        <button id="addToDo"> + TODO</button>
-    </div>
-    <div id="main">
-        <div id="navigation">
-            <button class="navigationBtns" id="defaultToDos"> GENERAL TO DO'S </button>
-            <button class="navigationBtns" id="addNewProject">NEW PROJECT</button>
-        </div>
-        <div id="content" class="tab-content">
-
-        </div>
-    </div>
-</body>
-</html>
+<head><script defer src="main.js"></script></head>Html Webpack Plugin:
+<pre>
+  Error: Child compilation failed:
+  Module not found: Error: Can't resolve '/Users/albertcastillo/repos/todo-list-odin/src/template.html' in '/Users/albertcastillo/repos/todo-list-odin'
+  ModuleNotFoundError: Module not found: Error: Can't resolve '/Users/albertcastillo/repos/todo-list-odin/src/template.html' in '/Users/albertcastillo/repos/todo-list-odin'
+      at /Users/albertcastillo/repos/todo-list-odin/node_modules/webpack/lib/Compilation.js:2123:28
+      at /Users/albertcastillo/repos/todo-list-odin/node_modules/webpack/lib/NormalModuleFactory.js:923:13
+      at eval (eval at create (/Users/albertcastillo/repos/todo-list-odin/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:10:1)
+      at /Users/albertcastillo/repos/todo-list-odin/node_modules/webpack/lib/NormalModuleFactory.js:339:22
+      at eval (eval at create (/Users/albertcastillo/repos/todo-list-odin/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:9:1)
+      at /Users/albertcastillo/repos/todo-list-odin/node_modules/webpack/lib/NormalModuleFactory.js:520:22
+      at /Users/albertcastillo/repos/todo-list-odin/node_modules/webpack/lib/NormalModuleFactory.js:155:10
+      at /Users/albertcastillo/repos/todo-list-odin/node_modules/webpack/lib/NormalModuleFactory.js:783:25
+      at /Users/albertcastillo/repos/todo-list-odin/node_modules/webpack/lib/NormalModuleFactory.js:1008:8
+      at /Users/albertcastillo/repos/todo-list-odin/node_modules/webpack/lib/NormalModuleFactory.js:1137:5
+  
+  - Compilation.js:2123 
+    [todo-list-odin]/[webpack]/lib/Compilation.js:2123:28
+  
+  - NormalModuleFactory.js:923 
+    [todo-list-odin]/[webpack]/lib/NormalModuleFactory.js:923:13
+  
+  
+  - NormalModuleFactory.js:339 
+    [todo-list-odin]/[webpack]/lib/NormalModuleFactory.js:339:22
+  
+  
+  - NormalModuleFactory.js:520 
+    [todo-list-odin]/[webpack]/lib/NormalModuleFactory.js:520:22
+  
+  - NormalModuleFactory.js:155 
+    [todo-list-odin]/[webpack]/lib/NormalModuleFactory.js:155:10
+  
+  - NormalModuleFactory.js:783 
+    [todo-list-odin]/[webpack]/lib/NormalModuleFactory.js:783:25
+  
+  - NormalModuleFactory.js:1008 
+    [todo-list-odin]/[webpack]/lib/NormalModuleFactory.js:1008:8
+  
+  - NormalModuleFactory.js:1137 
+    [todo-list-odin]/[webpack]/lib/NormalModuleFactory.js:1137:5
+  
+  - child-compiler.js:211 
+    [todo-list-odin]/[html-webpack-plugin]/lib/child-compiler.js:211:18
+  
+  - Compiler.js:629 finalCallback
+    [todo-list-odin]/[webpack]/lib/Compiler.js:629:5
+  
+  - Compiler.js:664 
+    [todo-list-odin]/[webpack]/lib/Compiler.js:664:11
+  
+  - Compiler.js:1350 
+    [todo-list-odin]/[webpack]/lib/Compiler.js:1350:17
+  
+  
+  - Hook.js:18 Hook.CALL_ASYNC_DELEGATE [as _callAsync]
+    [todo-list-odin]/[tapable]/lib/Hook.js:18:14
+  
+  - Compiler.js:1346 
+    [todo-list-odin]/[webpack]/lib/Compiler.js:1346:33
+  
+  - Compilation.js:2938 finalCallback
+    [todo-list-odin]/[webpack]/lib/Compilation.js:2938:11
+  
+  - Compilation.js:3251 
+    [todo-list-odin]/[webpack]/lib/Compilation.js:3251:11
+  
+  
+</pre>

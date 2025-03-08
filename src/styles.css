@@ -221,3 +221,11 @@ select:-webkit-autofill:focus {
 .hide{
     display:none;
 }
+
+h3{
+    color: rgb(188, 187, 187);
+    font-size: 36px;
+    align-self: center;
+    margin-left: 25px;
+    font-family: "Aldrich", serif;
+}

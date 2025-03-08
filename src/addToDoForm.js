@@ -55,7 +55,6 @@ let addToDoForm =  function(arg){
         form.appendChild(addBtn);
 
         content.appendChild(form);
-    
 };
 
 export {addToDoForm};

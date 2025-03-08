@@ -15,6 +15,8 @@ let renderProject = function(project){
     }
     newProjectTab.innerHTML = output;
 
+    newProjectTab.id = output.trim();
+
     let deleteBtn = document.createElement("button");
     deleteBtn.classList = "project-delete-btn";
     deleteBtn.textContent = "DONE";

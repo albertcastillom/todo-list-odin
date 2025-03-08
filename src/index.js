@@ -19,11 +19,20 @@ if(storedArr){
     }
 }
 
-const storedProj = localStorage.getItem("projects");
-if (storedProj){
+let projArr = JSON.parse(localStorage.getItem("projects")) || [];
+if (projArr){
     try{
-        const arr = JSON.parse(storedProj);
-        renderProject(arr);
+        renderProject(projArr);
+        projArr.forEach(object => {
+            let main = document.querySelector("#main");
+            let tab = document.createElement("div");
+            tab.id = `content-${object.project}`;
+            tab.classList = "tab-content hide";
+            let tabTitle  = document.createElement("h3");
+            tabTitle.textContent = `${object.project}: `;
+            tab.appendChild(tabTitle);
+            main.appendChild(tab);
+        })
     }catch(error){
         console.log("error passing projects", error);
     }
@@ -31,7 +40,7 @@ if (storedProj){
 
 
 let todoArr = [];
-let projArr = [];
+//let projArr = [];
 
 //add todo btn logic
 let ToDoBtn = document.querySelector("#addToDo"); // grab +todo button
@@ -41,66 +50,69 @@ ToDoBtn.addEventListener("click", (e)=>{ //event listener on +todo
         if (tabContents[1] != undefined){
             tabContents.forEach(content => {
             let classNames = content.classList;
-                if(classNames[2] === undefined){
+                if(classNames[1] === "active"){
                     addToDoForm(content.id);
                 }
             });
         }else{
             addToDoForm("content");  
         }
+            const form = document.querySelector("#toDoForm");
+            const addBtn= document.querySelector("#add-btn"); //grabs form to add event
+            addBtn.addEventListener("click", (event)=>{ //adding event
+                event.preventDefault();
+               
+                //grabs tab that is open
+                let openTab = event.target.closest("div");
+                //grabbing form values
+                const name = document.getElementById("ToDo").value;
+                const description = document.getElementById("ToDoDescription").value;
+                const dueDate = document.getElementById("ToDoDate").value;
+                //creates Todo
+                let todo = toDo(name, description, dueDate);
 
-  
-    const form = document.querySelector("#toDoForm"); //grabs form to add event
+                if(openTab.id !== "content"){
+                    let existingTodos = JSON.parse(localStorage.getItem(`${openTab.id}-todos`)) || [];
+                    existingTodos.push(todo);
+                    localStorage.setItem(`${openTab.id}-todos`, JSON.stringify(existingTodos));
 
-    form.addEventListener("submit", (event)=>{ //adding event
-        event.preventDefault();
-         //grabs tab that is open
-         let openTab = event.target.closest("div");
-
-        //grabbing form values
-        const name = document.getElementById("ToDo").value;
-        const description = document.getElementById("ToDoDescription").value;
-        const dueDate = document.getElementById("ToDoDate").value;
-        //creates Todo
-        let todo = toDo(name, description, dueDate);
-
-        if(openTab.id !== "content"){
-            let newArr= [];
-            newArr.push(todo);
-            localStorage.setItem(`${openTab.id}-todos`, JSON.stringify(newArr));
-
-        }else{
-            todoArr.push(todo);
-            localStorage.setItem("todos", JSON.stringify(todoArr));
-        }
-        renderTodo(todo, openTab.id); //renders todo
-        form.remove(); //removes form
-    });
+                }else{
+                    todoArr.push(todo);
+                    localStorage.setItem("todos", JSON.stringify(todoArr));
+                }
+                renderTodo(todo, openTab.id); //renders todo
+                form.remove(); //removes form
+            });
 });
 
- //adds listener to done btns
+
+ //adds listener to all todo done btns
  document.addEventListener("DOMContentLoaded", () => {
     document.body.addEventListener("click", (e) => {
         if (e.target.classList.contains("delete-btn")) {
             e.preventDefault();
-            let openTab = e.target.closest("div");
-            let buttons = Array.from(document.querySelectorAll(".delete-btn"));
-            
-            // Find the index of the clicked button
-            let index = buttons.indexOf(e.target);
-            e.target.closest('div').remove();
-            buttons.splice(index, 1);
-            if (openTab.id !== "content"){
-                ///delete from local storage
+            let tab = tabThatsOpen();
+            let buttons = Array.from(document.getElementById(`${tab}`).querySelectorAll(".delete-btn"));
+            if (tab != "content"){
+                let index = buttons.indexOf(e.target);
+                e.target.closest('div').remove();
+                buttons.splice(index, 1);
+                let existingTodos = JSON.parse(localStorage.getItem(`${tab}-todos`));
+                existingTodos.splice(index, 1);
+                localStorage.setItem(`${tab}-todos`, JSON.stringify(existingTodos));
+;            }else{
+                // Find the index of the clicked button
+             let index = buttons.indexOf(e.target);
+              e.target.closest('div').remove();
+             buttons.splice(index, 1);
+             todoArr.splice(index, 1);
+             localStorage.setItem("todos", JSON.stringify(todoArr));
             }
-            todoArr.splice(index, 1);
-            localStorage.setItem("todos", JSON.stringify(todoArr));
-
         };
     });
 });
 
-////adding new project btn logic
+////adding new project btn logic to add projects
 let newProjectBtn = document.querySelector("#addNewProject");
 newProjectBtn.addEventListener("click", ()=>{
     addProjectForm();
@@ -117,57 +129,59 @@ newProjectBtn.addEventListener("click", ()=>{
         renderProject(projects);
         form.remove();
 
+        let main = document.querySelector("#main");
+        let tab = document.createElement("div");
+        tab.id = `content-${project}`;
+        tab.classList = "tab-content";
+        let tabTitle  = document.createElement("h3");
+        tabTitle.textContent = `${project}: `;
+        tab.appendChild(tabTitle);
+        main.appendChild(tab);
+        openTab(`content-${project}`);
+
     });
 });
 
 
-// adding function to project buttons in navigation bar
 let clickCount = 0;
-document.addEventListener("DOMContentLoaded", ()=>{
-    document.body.addEventListener("click", (e) => {
-        if(e.target.classList.contains("newProject")){
-            e.preventDefault();
-            clickCount++;
-            let buttons = Array.from(document.querySelectorAll(".newProject"));
-            let index = buttons.indexOf(e.target);
+let renderedTodos = {}; // Track rendered todos per tab
 
-            if (document.querySelector(`#content${index + 1}`)){
-                openTab(`content${index + 1}`);
-             }else{
-                    let main = document.querySelector("#main");
-                    let tab = document.createElement("div");
-                    tab.id = `content${index + 1}`;
-                    tab.classList = "tab-content";
-                    main.appendChild(tab);
-                    openTab(`content${index + 1}`);
+// Adding function to project button in navigation bar to open new tab
+document.addEventListener("DOMContentLoaded", () => {
+    document.body.addEventListener("click", (e) => {
+        if (e.target.classList.contains("newProject")) {
+            e.preventDefault();
+
+            let tabId = `content-${e.target.id}`;
+            openTab(tabId);
+
+            // Check if this tab was already opened before
+            if (!renderedTodos[tabId]) {
+                let tab = tabThatsOpen(); // Assuming this function returns the current open tab's ID
+
+                // Getting todos that are stored in localStorage
+                const storedArr = localStorage.getItem(`${tab}-todos`);
+                if (storedArr) {
+                    try {
+                        const arr = JSON.parse(storedArr);
+                         // Check if todos are already present in the DOM
+                         let existingTodos = document.querySelector(`#${tab} .toDosDiv`);
+                         if (!existingTodos) {
+                             renderTodo(arr, `${tab}`);
+                         }
+                    } catch (error) {
+                        console.log("Error parsing todos:", error);
+                    }
                 }
-                
-             if(clickCount <= 1){
-                let tabContents = document.querySelectorAll('.tab-content');
-                if (tabContents[1] != undefined){
-                    tabContents.forEach(content => {
-                        let classNames = content.classList;
-                        if(classNames[2] === undefined){
-                            
-                            const storedArr = localStorage.getItem(`${content.id}-todos`);
-                            if(storedArr){
-                                try{
-                                    const arr = JSON.parse(storedArr);
-                                    let tab = `content${index + 1}`;
-                                    renderTodo(arr, tab);
-                                }catch(error){
-                                    console.log("error passing", error);
-                                }
-                            }
-                        }
-                    });
-                }
-            } 
+
+                // Mark this tab as opened to prevent reloading todos
+                renderedTodos[tabId] = true;
+            }
+            clickCount++;  
         }
     });
 });
-
-//add delete btn logic
+//add project delete btn logic, deleting a project
 document.addEventListener("DOMContentLoaded", () => {
     document.body.addEventListener("click", (e) => {
         if (e.target.classList.contains("project-delete-btn")) {
@@ -175,17 +189,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
             let buttons = Array.from(document.querySelectorAll(".project-delete-btn"));
             let index = buttons.indexOf(e.target);
+            openTab(`content-${e.target.closest(".newProject").id}`);
             e.target.closest('.newProject').remove();
             buttons.splice(index, 1);
             projArr.splice(index, 1);
+            
+     
+            let tab = tabThatsOpen();
+            let closeTab = document.getElementById(tab);
+           closeTab.remove();
 
-            if (document.querySelector(`#content${index + 1}`)){
-                let existingtab = document.querySelector(`#content${index + 1}`);
-                existingtab.remove();
-                openTab("content");
-            }
+            localStorage.removeItem(`${tab}-todos`);
             localStorage.setItem("projects", JSON.stringify(projArr));
-
+            openTab("content");
+        
         };
     });
 });
@@ -193,50 +210,40 @@ document.addEventListener("DOMContentLoaded", () => {
 ///tab switicher
 function openTab(tabId) {
     let tabContents = document.querySelectorAll('.tab-content');
-    tabContents.forEach((content) => content.classList.add('hide'));
+    tabContents.forEach(content => {
+        content.classList.add('hide');
+        content.classList.remove('active');
+    });
 
-    let selectedTab = document.getElementById(tabId);
-    selectedTab.classList.remove("hide");
-    selectedTab.classList.add('active');
+    let selectedTab = document.querySelector(`#${tabId}`);
+    if (selectedTab) {
+        // If the tab exists, make it active
+        selectedTab.classList.remove("hide");
+        selectedTab.classList.add('active');
+    } else {
+        // If the tab doesn't exist, you can either create it or show a default tab.
+        // For example, let's show a default tab or create a new tab:
+        console.log(`Tab with ID ${tabId} not found.`);
+    }
 };
  
 //general to dos tab switch
   let generalTab = document.querySelector("#defaultToDos");
   generalTab.addEventListener("click", (e)=>{
     e.preventDefault();
+
     openTab("content");
   });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Save div content to local storage
-function saveDivContent(divClass, key) {
-  const div = document.getElementsByClassName(divClass);
-  if (div) {
-    const content = div.innerHTML;
-    localStorage.setItem(key, content);
-  }
-}
-
-// Load div content from local storage
-function loadDivContent(divClass, key) {
-    const div = document.getElementsByClassName(divClass);
-    if (div) {
-      const savedContent = localStorage.getItem(key);
-      if (savedContent) {
-        div.innerHTML = savedContent;
-      }
+// get open tab function
+function tabThatsOpen() {
+    let tabContents = document.querySelectorAll('.tab-content');
+    if (tabContents.length > 1) {
+        for (let content of tabContents) {
+            if (content.classList.contains("active")) {
+                return content.id; // Now it correctly returns the id
+            }
+        }
     }
+    return "content"; // Return null if no active tab is found
 }

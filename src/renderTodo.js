@@ -16,7 +16,7 @@ let renderTodo = function(todo, tab){
         for (const key in todo){
             output +=  `${todo[key]}` + " ";
         }
-        todoDiv.innerHTML = output;
+        todoDiv.innerHTML = output.trim();
 
         //done btn
         let deleteBtn = document.createElement("button");

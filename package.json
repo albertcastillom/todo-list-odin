@@ -1,6 +1,13 @@
 {
+  "name": "todo-list",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "deploy": "gh-pages -d dist"
+  },
   "devDependencies": {
     "css-loader": "^7.1.2",
+    "gh-pages": "^6.3.0",
     "html-webpack-plugin": "^5.6.3",
     "style-loader": "^4.0.0",
     "webpack": "^5.97.1",

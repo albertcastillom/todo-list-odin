@@ -43,7 +43,7 @@ let todoArr = [];
 
 //add todo btn logic
 let ToDoBtn = document.querySelector("#addToDo"); // grab +todo button
-ToDoBtn.addEventListener("click", (e) => {
+ToDoBtn.addEventListener("click", () => {
   //event listener on +todo
   //check which tab is open to add the from to the corrsponding one
   let tabContents = document.querySelectorAll(".tab-content");

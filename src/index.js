@@ -146,7 +146,6 @@ newProjectBtn.addEventListener("click", () => {
   });
 });
 
-let clickCount = 0;
 let renderedTodos = {}; // Track rendered todos per tab
 
 // Adding function to project button in navigation bar to open new tab
@@ -180,7 +179,6 @@ document.addEventListener("DOMContentLoaded", () => {
         // Mark this tab as opened to prevent reloading todos
         renderedTodos[tabId] = true;
       }
-      clickCount++;
     }
   });
 });

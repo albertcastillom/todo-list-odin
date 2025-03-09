@@ -1,125 +1,125 @@
 .aldrich-regular {
-    font-family: "Aldrich", serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-  
-body{
-    margin: 0px;
-    padding: 0px;
-}
-#header{
-    display: flex;
-    justify-content: space-between;
-    height: 80px;
-    background-color: black;
-    border-bottom: 1pt solid rgb(188, 187, 187);
+  font-family: "Aldrich", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
-#name{
-    color:rgb(187, 95, 187);
-    font-size: 36px;
-    align-self: center;
-    margin-left: 25px;
-    font-family: "Aldrich", serif;
+body {
+  margin: 0px;
+  padding: 0px;
+}
+#header {
+  display: flex;
+  justify-content: space-between;
+  height: 80px;
+  background-color: black;
+  border-bottom: 1pt solid rgb(188, 187, 187);
 }
 
-#addToDo{
-    align-self: center;
-    margin-right: 25px;
-    background-color:rgb(187, 95, 187);
-    color: black;
-    border: none;
-    border-radius: 5px;
-    font-size: 25px;
-    padding: 10px 20px;
-    padding-top: 15px;
-    text-decoration: none;
-    font-family: "Aldrich", serif;
+#name {
+  color: rgb(187, 95, 187);
+  font-size: 36px;
+  align-self: center;
+  margin-left: 25px;
+  font-family: "Aldrich", serif;
 }
 
-#main{
-    display: flex;
-}
-#navigation{
-    border-right: 1pt solid rgb(188, 187, 187);
-    background-color: rgb(32, 32, 32);
-    width: 20vw;
-    height: 100vh;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    padding: 15px;
-}
-
-.navigationBtns{
-    display: block;
-    background-color:rgb(187, 95, 187);
-    color: black;
-    border: none;
-    border-radius: 5px;
-    font-size: 20px;
-    text-align: center;
-    text-decoration: none;
-    font-family: "Aldrich", serif;
-    width: 100%;
-    margin: 0px;
-    padding: 15px;
-    box-sizing: border-box;
-    margin-bottom: 15px;
+#addToDo {
+  align-self: center;
+  margin-right: 25px;
+  background-color: rgb(187, 95, 187);
+  color: black;
+  border: none;
+  border-radius: 5px;
+  font-size: 25px;
+  padding: 10px 20px;
+  padding-top: 15px;
+  text-decoration: none;
+  font-family: "Aldrich", serif;
 }
 
-.tab-content{
-    background-color: rgb(32, 32, 32);
-    width: 80vw;
-    height: 100vh;
-    padding: 15px;
-    padding-right: 30px;
-    box-sizing: border-box;
-
+#main {
+  display: flex;
 }
-
-.toDosDiv{
-    color: white;
-}
-
-#toDoForm input, #toDoForm select, #toDoForm textarea{
-    margin: 12px 0;
-    width: 100%;
-    padding: 12px;
-    border: 1pt solid rgb(188, 187, 187);
-    background-color: rgb(32, 32, 32);
-    color: rgb(188, 187, 187);
-    border-radius: 5px;
-    font-family: "Aldrich", serif;
-}
-
-#toDoForm input:focus{
+#navigation {
+  border-right: 1pt solid rgb(188, 187, 187);
   background-color: rgb(32, 32, 32);
-    outline-color: rgb(187, 95, 187);
+  width: 20vw;
+  height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
 }
 
-
-label{
-    color: rgb(188, 187, 187);
-    font-family: "Aldrich", serif;
+.navigationBtns {
+  display: block;
+  background-color: rgb(187, 95, 187);
+  color: black;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  text-align: center;
+  text-decoration: none;
+  font-family: "Aldrich", serif;
+  width: 100%;
+  margin: 0px;
+  padding: 15px;
+  box-sizing: border-box;
+  margin-bottom: 15px;
 }
 
-#toDoForm #add-btn{
-    background-color:rgb(187, 95, 187);
-    color: black;
-    border: none;
-    border-radius: 3px;
-    font-size: 20px;
-    text-align: center;
-    text-decoration: none;
-    font-family: "Aldrich", serif;
-    padding: 10px 15px 8px 15px;
+.tab-content {
+  background-color: rgb(32, 32, 32);
+  width: 80vw;
+  height: 100vh;
+  padding: 15px;
+  padding-right: 30px;
+  box-sizing: border-box;
+}
+
+.toDosDiv {
+  color: white;
+}
+
+#toDoForm input,
+#toDoForm select,
+#toDoForm textarea {
+  margin: 12px 0;
+  width: 100%;
+  padding: 12px;
+  border: 1pt solid rgb(188, 187, 187);
+  background-color: rgb(32, 32, 32);
+  color: rgb(188, 187, 187);
+  border-radius: 5px;
+  font-family: "Aldrich", serif;
+}
+
+#toDoForm input:focus {
+  background-color: rgb(32, 32, 32);
+  outline-color: rgb(187, 95, 187);
+}
+
+label {
+  color: rgb(188, 187, 187);
+  font-family: "Aldrich", serif;
+}
+
+#toDoForm #add-btn {
+  background-color: rgb(187, 95, 187);
+  color: black;
+  border: none;
+  border-radius: 3px;
+  font-size: 20px;
+  text-align: center;
+  text-decoration: none;
+  font-family: "Aldrich", serif;
+  padding: 10px 15px 8px 15px;
 }
 
 /* Change autocomplete styles in WebKit */
 input:-webkit-autofill,
-input:-webkit-autofill:hover, 
+input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 textarea:-webkit-autofill,
 textarea:-webkit-autofill:hover,
@@ -127,105 +127,105 @@ textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-  -webkit-text-fill-color: rgb(188, 187, 187);;
-  -webkit-box-shadow: 0 0 0px 1000px  rgb(32, 32, 32) inset;
+  -webkit-text-fill-color: rgb(188, 187, 187);
+  -webkit-box-shadow: 0 0 0px 1000px rgb(32, 32, 32) inset;
 }
 
-
-.toDosDiv{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 12px 0;
-    width: 100%;
-    padding: 12px;
-    border: 1pt solid rgb(188, 187, 187);
-    background-color: rgb(32, 32, 32);
-    color: rgb(188, 187, 187);
-    border-radius: 5px;
-    font-family: "Aldrich", serif;
+.toDosDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 12px 0;
+  width: 100%;
+  padding: 12px;
+  border: 1pt solid rgb(188, 187, 187);
+  background-color: rgb(32, 32, 32);
+  color: rgb(188, 187, 187);
+  border-radius: 5px;
+  font-family: "Aldrich", serif;
 }
 
-.delete-btn{
-    background-color: rgb(188, 187, 187);
-    color: black;
-    border: solid 2pt black;
-    border-radius: 5px;
-    font-size: 15px;
-    text-align: center;
-    text-decoration: none;
-    font-family: "Aldrich", serif;
-    padding: 10px 15px 8px 15px;
+.delete-btn {
+  background-color: rgb(188, 187, 187);
+  color: black;
+  border: solid 2pt black;
+  border-radius: 5px;
+  font-size: 15px;
+  text-align: center;
+  text-decoration: none;
+  font-family: "Aldrich", serif;
+  padding: 10px 15px 8px 15px;
 }
 
-#addProjectForm input, #addProjectForm select, #addProjectForm textarea{
-    margin: 12px 0;
-    border: 1pt solid rgb(188, 187, 187);
-    background-color: rgb(32, 32, 32);
-    color: rgb(188, 187, 187);
-    border-radius: 5px;
-    font-family: "Aldrich", serif;
-    width: 100%;
-    padding: 15px;
-    box-sizing: border-box;
-    margin-bottom: 15px;
+#addProjectForm input,
+#addProjectForm select,
+#addProjectForm textarea {
+  margin: 12px 0;
+  border: 1pt solid rgb(188, 187, 187);
+  background-color: rgb(32, 32, 32);
+  color: rgb(188, 187, 187);
+  border-radius: 5px;
+  font-family: "Aldrich", serif;
+  width: 100%;
+  padding: 15px;
+  box-sizing: border-box;
+  margin-bottom: 15px;
 }
 
-
-#project-add-btn{
-    background-color:rgb(187, 95, 187);
-    color: black;
-    border: none;
-    border-radius: 3px;
-    font-size: 20px;
-    text-align: center;
-    text-decoration: none;
-    font-family: "Aldrich", serif;
-    padding: 10px 15px 8px 15px;
+#project-add-btn {
+  background-color: rgb(187, 95, 187);
+  color: black;
+  border: none;
+  border-radius: 3px;
+  font-size: 20px;
+  text-align: center;
+  text-decoration: none;
+  font-family: "Aldrich", serif;
+  padding: 10px 15px 8px 15px;
 }
 
-.newProject{
-    display: flex;
-    background-color:rgb(187, 95, 187);
-    color: black;
-    border: none;
-    border-radius: 5px;
-    font-size: 20px;
-    align-items: center;
-    text-decoration: none;
-    font-family: "Aldrich", serif;
-    width: 100%;
-    margin: 0px;
-    padding: 15px;
-    box-sizing: border-box;
-    margin-bottom: 15px;
-    justify-content: space-between;
+.newProject {
+  display: flex;
+  background-color: rgb(187, 95, 187);
+  color: black;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  align-items: center;
+  text-decoration: none;
+  font-family: "Aldrich", serif;
+  width: 100%;
+  margin: 0px;
+  padding: 15px;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+  justify-content: space-between;
 }
 
-.project-delete-btn{
-    background-color: rgb(187, 95, 187);
-    color: black;
-    border:  2pt solid black;
-    border-radius: 5px;
-    text-align: center;
-    text-decoration: none;
-    font-family: "Aldrich", serif;
-    font-size: 15px;
-    padding: 10px 15px 8px 15px;
+.project-delete-btn {
+  background-color: rgb(187, 95, 187);
+  color: black;
+  border: 2pt solid black;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  font-family: "Aldrich", serif;
+  font-size: 15px;
+  padding: 10px 15px 8px 15px;
 }
 
-.active{
-    display: block;
+.active {
+  display: block;
 }
 
-.hide{
-    display:none;
+.hide {
+  display: none;
 }
 
-h3{
-    color: rgb(188, 187, 187);
-    font-size: 36px;
-    align-self: center;
-    margin-left: 25px;
-    font-family: "Aldrich", serif;
+h3 {
+  color: rgb(188, 187, 187);
+  font-size: 36px;
+  align-self: center;
+  margin-left: 25px;
+  font-family: "Aldrich", serif;
 }

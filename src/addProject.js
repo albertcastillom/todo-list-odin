@@ -1,8 +1,7 @@
-let addProject = function(project){
-
-    return{
-        project: project,
-    }
+let addProject = function (project) {
+  return {
+    project: project,
+  };
 };
 
-export {addProject};
+export { addProject };
